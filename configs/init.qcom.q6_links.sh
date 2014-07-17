@@ -4,11 +4,11 @@
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 
-cd /firmware_q6
+cd /firmware/q6
 case `ls q6.mdt 2>/dev/null` in
 	q6.mdt)
 		for imgfile in q6*; do
-			ln -s /firmware_q6/$imgfile /vendor/firmware/$imgfile 2>/dev/null
+			ln -s /firmware/q6/$imgfile /vendor/firmware/$imgfile 2>/dev/null
 		done
 		;;
 	*)

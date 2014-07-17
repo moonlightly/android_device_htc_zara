@@ -4,14 +4,14 @@
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 
-cd /firmware_radio
+cd /firmware/radio
 
 # Check chip version
 case `cat /sys/devices/system/soc/soc0/version 2>/dev/null` in
 	*)
 		for file in modem_f1.* ; do
 			newname=modem_fw.${file##*.}
-			ln -s /firmware_radio/$file /vendor/firmware/$newname 2>/dev/null
+			ln -s /firmware/radio/$file /vendor/firmware/$newname 2>/dev/null
 		done
 esac
 
@@ -19,7 +19,7 @@ esac
 case `ls modem.mdt 2>/dev/null` in
 	modem.mdt)
 		for imgfile in modem*; do
-			ln -s /firmware_radio/$imgfile /vendor/firmware/$imgfile 2>/dev/null
+			ln -s /firmware/radio/$imgfile /vendor/firmware/$imgfile 2>/dev/null
 		done
 		;;
 	*)

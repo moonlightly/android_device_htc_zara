@@ -39,12 +39,12 @@ BOARD_KERNEL_BASE := 0x80600000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=zara androidboot.selinux=permissive user_debug=31
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01608000
-TARGET_KERNEL_CONFIG := zara_defconfig
+TARGET_KERNEL_CONFIG := m4_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/zara
 #TARGET_PREBUILT_KERNEL := device/htc/zara/kernel
 
 # Use GCC 4.6 to compile the kernel
-#ARM_EABI_TOOLCHAIN :=$(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6/bin/
+#ARM_EABI_TOOLCHAIN :=$(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6/bin
 
 # Audio
 BOARD_USES_FLUENCE_INCALL := true # use DMIC in call only
@@ -67,6 +67,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Graphics
 TARGET_DISPLAY_INSECURE_MM_HEAP := true
+TARGET_DISPLAY_USE_RETIRE_FENCE := false
 
 # GPS
 BOARD_HAVE_NEW_QC_GPS := true
@@ -122,7 +123,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776704
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1912601600
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 5100273664
 BOARD_FLASH_BLOCK_SIZE := 131072
-BOARD_VOLD_MAX_PARTITIONS := 36
+BOARD_VOLD_MAX_PARTITIONS := 39
 
 # Vold
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
@@ -132,15 +133,12 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/htc/zara/twrp.fstab
+TARGET_RECOVERY_FSTAB := device/htc/zara/rootdir/etc/fstab.zara
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_RECOVERY_SWIPE := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-
-TARGET_HAS_OLD_QCOM_ION := true
-BOARD_HAVE_LOW_LATENCY_AUDIO := true
 
 # Touch screen
 BOARD_USE_LEGACY_TOUCHSCREEN := true
@@ -154,8 +152,8 @@ TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TW_INCLUDE_JB_CRYPTO := true
+RECOVERY_SDCARD_ON_DATA := true
 
-TARGET_DISPLAY_USE_RETIRE_FENCE := false
 
 # inherit from the proprietary version
 -include vendor/htc/zara/BoardConfigVendor.mk

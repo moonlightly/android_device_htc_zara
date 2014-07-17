@@ -1,5 +1,5 @@
 # Executables
-# bin/akmd
+bin/akmd
 bin/charging
 bin/mm-qcamera-daemon
 bin/mpdecision
@@ -108,6 +108,7 @@ lib/libmmjpeg.so
 lib/libmmstillomx.so
 lib/liboemcamera.so
 lib/libposteffect.so
+lib/libwriteback.so
 
 # GPS
 lib/libloc_api_v02.so

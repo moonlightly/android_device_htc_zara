@@ -37,7 +37,7 @@ enum ion_heap_type {
 #define ION_HEAP_CARVEOUT_MASK		(1 << ION_HEAP_TYPE_CARVEOUT)
 #define ION_HEAP_CP_MASK		(1 << ION_HEAP_TYPE_CP)
 
-
+#define ION_FLAG_CACHED 1
 
 enum ion_heap_ids {
 	INVALID_HEAP_ID = -1,
@@ -45,8 +45,7 @@ enum ion_heap_ids {
 	ION_CP_ROTATOR_HEAP_ID = 9,
 	ION_CP_MFC_HEAP_ID = 12,
 	ION_CP_WB_HEAP_ID = 16, 
-	ION_CAMERA_HEAP_ID = 20,
-    ION_SYSTEM_CONTIG_HEAP_ID = 21,
+	ION_CAMERA_HEAP_ID = 20, 
 	ION_SF_HEAP_ID = 24,
 	ION_IOMMU_HEAP_ID = 25,
 	ION_QSECOM_HEAP_ID = 27,
@@ -368,11 +367,13 @@ static inline int msm_ion_do_cache_op(struct ion_client *client,
 struct ion_allocation_data {
 	size_t len;
 	size_t align;
+	unsigned int heap_mask;
 	unsigned int flags;
 	struct ion_handle *handle;
-};
+}; 
 
-struct ion_allocation_data_new {
+
+struct ion_allocation_data_new { 
 	size_t len;
 	size_t align;
 	unsigned int heap_mask;

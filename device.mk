@@ -47,13 +47,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.qcom.bt.sh:/system/etc/init.qcom.bt.sh \
     $(LOCAL_PATH)/configs/init.qcom.fm.sh:/system/etc/init.qcom.fm.sh \
     $(LOCAL_PATH)/configs/init.qcom.q6_links.sh:/system/etc/init.qcom.q6_links.sh \
-    $(LOCAL_PATH)/configs/init.qcom.radio_links.sh:/system/etc/init.qcom.radio_links.sh
+    $(LOCAL_PATH)/configs/init.qcom.radio_links.sh:/system/etc/init.qcom.radio_links.sh \
+    $(LOCAL_PATH)/configs/init.gyrocali.sh:root/init.gyrocali.sh \
+    $(LOCAL_PATH)/configs/init.network.sh:root/init.network.sh
 
 # QC thermald config
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thermald.conf:system/etc/thermald.conf
 
 PRODUCT_PACKAGES += \
-    libnetcmdiface
+    libnetcmdiface \
+    libdashplayer
 
 # Wifi config
 PRODUCT_COPY_FILES += \
@@ -65,15 +68,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/AudioBTID.csv:system/etc/AudioBTID.csv \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/sound/snd_soc_msm/snd_soc_msm_Sitar:system/etc/snd_soc_msm/snd_soc_msm_Sitar \
-    $(LOCAL_PATH)/sound/snd_soc_msm/snd_soc_msm:system/etc/snd_soc_msm/snd_soc_msm \
-    $(LOCAL_PATH)/sound/snd_soc_msm/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
-    $(LOCAL_PATH)/sound/snd_soc_msm/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
-    $(LOCAL_PATH)/sound/soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_truemedia_51.cfg \
-    $(LOCAL_PATH)/sound/soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_truemedia_movie.cfg \
-    $(LOCAL_PATH)/sound/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_truemedia_music.cfg \
-    $(LOCAL_PATH)/sound/soundimage/srsfx_trumedia_voice.cfg:system/etc/soundimage/srsfx_truemedia_voice.cfg \
-    $(LOCAL_PATH)/sound/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg
+    $(LOCAL_PATH)/dsp/snd_soc_msm_Sitar:system/etc/snd_soc_msm/snd_soc_msm_Sitar 
 
 # Media config
 PRODUCT_COPY_FILES += \
