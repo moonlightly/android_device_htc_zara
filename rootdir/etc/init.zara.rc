@@ -50,58 +50,17 @@ on init
     symlink /storage/ext_sd /mnt/media_rw/ext_sd
     symlink /storage/usb /mnt/usb
 
-    # HTC SSD Peripheral UI - BEGIN
-    # LSM330 Gyro
-    chown system system /sys/devices/virtual/ST_gyr/gyr/enable_device
-    chown system system /sys/devices/virtual/ST_gyr/gyr/pollrate_ms
-    chown system system /sys/devices/virtual/ST_gyr/gyr/fifo_mode
-    chown system system /sys/devices/virtual/ST_gyr/gyr/range
-    chown system system /sys/devices/virtual/ST_gyr/gyr/fifo_samples
-    chown system system /sys/devices/virtual/ST_gyr/gyr/enable_polling
-    chown system system /sys/devices/virtual/ST_gyr/gyr/cali_data
-    chown system system /sys/devices/virtual/ST_gyr/gyr/debug_event_report
-
-    chmod 0660 /sys/devices/virtual/ST_gyr/gyr/enable_device
-    chmod 0660 /sys/devices/virtual/ST_gyr/gyr/pollrate_ms
-    chmod 0660 /sys/devices/virtual/ST_gyr/gyr/fifo_mode
-    chmod 0660 /sys/devices/virtual/ST_gyr/gyr/range
-    chmod 0660 /sys/devices/virtual/ST_gyr/gyr/fifo_samples
-    chmod 0660 /sys/devices/virtual/ST_gyr/gyr/enable_polling
-    chmod 0660 /sys/devices/virtual/ST_gyr/gyr/cali_data
-    chmod 0660 /sys/devices/virtual/ST_gyr/gyr/debug_event_report
-
-
-    # LSM330 Accelerometer
-    chown system system /sys/devices/virtual/ST_acc/acc/get_raw_data
-    chown system system /sys/devices/virtual/ST_acc/acc/enable_state_prog
-    chown system system /sys/devices/virtual/ST_acc/acc/pollrate_ms
-    chown system system /sys/devices/virtual/ST_acc/acc/enable_polling
-    chown system system /sys/devices/virtual/ST_acc/acc/enable_device
-    chown system system /sys/devices/virtual/ST_acc/acc/double_tap
-    chown system system /sys/devices/virtual/ST_acc/acc/chip_layout
-    chown system system /sys/devices/virtual/ST_acc/acc/range
-    chown system system /sys/devices/virtual/ST_acc/acc/set_k_value
-    chown system system /sys/devices/virtual/ST_acc/acc/calibration_version
-
-    chmod 0660 /sys/devices/virtual/ST_acc/acc/get_raw_data
-    chmod 0660 /sys/devices/virtual/ST_acc/acc/enable_state_prog
-    chmod 0660 /sys/devices/virtual/ST_acc/acc/pollrate_ms
-    chmod 0660 /sys/devices/virtual/ST_acc/acc/enable_polling
-    chmod 0660 /sys/devices/virtual/ST_acc/acc/enable_device
-    chmod 0660 /sys/devices/virtual/ST_acc/acc/double_tap
-    chmod 0660 /sys/devices/virtual/ST_acc/acc/chip_layout
-    chmod 0660 /sys/devices/virtual/ST_acc/acc/range
-    chmod 0660 /sys/devices/virtual/ST_acc/acc/set_k_value
-    chmod 0660 /sys/devices/virtual/ST_acc/acc/calibration_version
-
-
-    # BMA250 BOSCH
-    chown system system /sys/class/htc_g_sensor/g_sensor/enable_cir_interrupt
-    chmod 0660 /sys/class/htc_g_sensor/g_sensor/enable_cir_interrupt
-    chown system system /sys/class/htc_g_sensor/g_sensor/en_sig_motion
-    chmod 0660 /sys/class/htc_g_sensor/g_sensor/en_sig_motion
-
-# HTC SSD Peripheral UI - END
+    #set G-Sensor and Compass permissions
+    chown compass system /dev/akm8975_aot
+    chown compass system /dev/akm8975_daemon
+    chown compass system /dev/bma150
+    chown system system /sys/class/htc_accelerometer/accelerometer/enable_cir_interrupt
+    chown system system /sys/class/bma250_powerkey/bma250/clear_powerkey_flag
+    chmod 0640 /dev/akm8975_aot
+    chmod 0640 /dev/akm8975_daemon
+    chmod 0660 /dev/bma150
+    chmod 0660 /sys/class/htc_accelerometer/accelerometer/enable_cir_interrupt
+    chmod 0660 /sys/class/bma250_powerkey/bma250/clear_powerkey_flag
 
     #htc sensorhub
     chown system system /sys/class/bma250_powerkey/bma250/clear_powerkey_flag
